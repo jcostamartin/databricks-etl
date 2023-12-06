@@ -7,7 +7,7 @@ spark = SparkSession.builder \
 
 # load data from CSV file to DataFrame
 csv_file_path = "s3://fdss3-dbis-databricks-etl/jcostamartin"
-df = spark.read.format("csv").option("inferSchema", "true").option("header", "true").load(csv_file_path)
+df = spark.read.format("csv").option("inferSchema", "true").option("header", "true").option("delimiter", "|").load(csv_file_path)
 
 # transform DataFrame as necessary 
 # since this is an example, I'm not performing any transformations
