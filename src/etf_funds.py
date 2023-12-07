@@ -6,7 +6,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # load data from CSV file to DataFrame
-csv_file_path = "s3://fdss3-dbis-databricks-etl/jcostamartin"
+csv_file_path = "s3://fdss3-dbis-databricks-etl/jcostamartin/etf_funds.csv"
 df = spark.read.format("csv").option("inferSchema", "true").option("header", "true").option("delimiter", "|").load(csv_file_path)
 
 # transform DataFrame as necessary 
