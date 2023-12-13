@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType
+from pyspark.sql.types import StructType, StructField, StringType, DoubleType, DateType
 
 # initiate a SparkSession
 spark = SparkSession.builder \
