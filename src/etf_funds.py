@@ -7,7 +7,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # load data from CSV file to DataFrame
-csv_file_path = "s3://fdss3-dbis-databricks-etl/jcostamartin/etf_funds.csv"
+csv_file_path = "s3://fdss3-dbis-databricks-etl/jcostamartin/dpe-test/etf_funds.csv"
 
 schema = StructType([
     StructField("FACTSET_ENTITY_ID", StringType(), True),
@@ -28,5 +28,5 @@ df = spark.read.format("csv").option("mergeSchema", "false").schema(schema).opti
 # df_transformed = df.select(...)
 
 # write DataFrame to a Delta table
-permanent_table_name = "dbis_etl.etf_funds.etf_funds"
+permanent_table_name = "dpe_testing_dev.dpe_testing_dev_schema1.etf_funds"
 df.write.format("delta").mode("overwrite").saveAsTable(permanent_table_name)
